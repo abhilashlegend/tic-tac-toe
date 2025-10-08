@@ -78,7 +78,6 @@ function App() {
         [symbol]: newName
       }
     });
-    console.log(players);
   }
 
   
@@ -90,8 +89,8 @@ function App() {
     <main>
       <div id="game-container">
         <ol id="players" className="highlight-player">
-          <Player initialName="Player 1" onSave={handlePlayerNameChange } symbol="X" isActive={activePlayer === 'X'} />
-          <Player initialName="Player 2" onSave={handlePlayerNameChange } symbol="O" isActive={activePlayer === 'O'} />
+          <Player initialName={players.X} onSave={handlePlayerNameChange } symbol="X" isActive={activePlayer === 'X'} />
+          <Player initialName={players.O} onSave={handlePlayerNameChange } symbol="O" isActive={activePlayer === 'O'} />
         </ol>
         { (winner || isDraw) && <GameOver winner={winner} onReset={ handleReset } /> }
         <GameBoard board={gameBoard} selectPlayer={handleActivePlayer}/>
