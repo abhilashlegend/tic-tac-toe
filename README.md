@@ -78,26 +78,6 @@ src/
 			gameover.jsx
 ```
 
-## Important implementation notes
-
-- The players list is rendered in `App.jsx` (`<ol id="players" ...>`). The active player is highlighted by adding `class="highlight-player"` to the parent `#players` and `class="active"` on the player `<li>` element (see `player.jsx`).
-- Player edits call an `onSave` callback passed from the parent; `player.jsx` uses a functional state updater so Save triggers correctly on the first click.
-- The `GameOver` component uppercases the winner for emphasis.
-
-## Troubleshooting
-
-	- Ensure `vite.config.js`'s `base` is set to `'/<repo-name>/'` (for this repo: `'/tic-tac-toe/'`).
-	- Ensure `package.json` `homepage` is set to your GitHub Pages URL.
-	- Confirm the `gh-pages` branch is active in the repository settings if you used a manual deploy.
-Deployment
-
-This project is deployed on Vercel: https://tic-tac-toe-nu-lilac.vercel.app/
-
-To deploy: connect the repository to Vercel and use the default build command (`npm run build`) and output directory (`dist`). Vercel automatically handles the base path and asset routing, so no additional `base` configuration is required in `vite.config.js`.
-
-- Nothing renders locally:
-	- Open the browser devtools console to check for errors and missing imports.
-	- Verify `index.jsx` mounts the app to `<div id="root"></div>` in `index.html`.
 
 ## Contributing
 
