@@ -1,12 +1,19 @@
 import { useState } from "react";
 
-export default function Player({ initialName, symbol, isActive }) {
+export default function Player({ initialName, symbol, isActive, onSave }) {
 
     const [isEditing, setIsEditing] = useState(false);
     const [playerName, setPlayerName] = useState(initialName);
 
     function editPlayer() {
-        setIsEditing(editing => !editing);
+    setIsEditing(prev => {
+      const wasEditing = prev;
+      // if we are closing the editor (wasEditing === true), call onSave
+      if (wasEditing && typeof onSave === 'function') {
+        onSave(symbol, playerName);
+      }
+      return !prev;
+    });
     }
 
     function savePlayer(event) {
